@@ -8,7 +8,7 @@ export default function Header() {
           className="border-2 border-slate-50 p-1 text-xl text-slate-50 font-extrabold"
           to="/"
         >
-          Header
+          Home
         </Link>
         <span className="text-md font-bold text-slate-50 cursor-pointer ">
           Movies
