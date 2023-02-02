@@ -1,6 +1,6 @@
 export default function BannerForm() {
   return (
-    <form className="">
+    <form onSubmit={(e) => e.preventDefault()}>
       <div className="form-control">
         <div className="input-group w-full">
           <input

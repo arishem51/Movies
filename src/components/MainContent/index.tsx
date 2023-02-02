@@ -1,4 +1,4 @@
-import Banner from "./Banner";
+import Banner from "../Banner";
 
 export default function MainContent() {
   return (
