@@ -1,3 +1,9 @@
+import Banner from "./Banner";
+
 export default function MainContent() {
-  return <div>Main Content</div>;
+  return (
+    <main className="container mx-auto">
+      <Banner />
+    </main>
+  );
 }
