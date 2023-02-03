@@ -2,6 +2,7 @@ import { useState } from "react";
 import useMoviesTrending from "../../service/hook/useMoviesTrending";
 import { TABS_TRENDING } from "../types";
 import CardMovie from "./CardMovie";
+import ListMovies from "./ListMovie";
 import Tabs from "./Tabs";
 
 export const ListTabs: TABS_TRENDING = [
@@ -21,9 +22,6 @@ export default function Trending() {
     time_windown: tabId,
     media_type: "movie",
   });
-  if (isLoading) {
-    return null;
-  }
   return (
     <section className="p-4">
       <div className="flex items-center gap-12">
@@ -34,11 +32,7 @@ export default function Trending() {
           onChangeTab={(newTabId) => setTabId(newTabId)}
         />
       </div>
-      <div className="flex gap-6 overflow-x-scroll py-4 bg-slider bg-contain bg-no-repeat">
-        {data?.results.map((item) => {
-          return <CardMovie key={item.id} item={item} />;
-        })}
-      </div>
+      <ListMovies isLoading={isLoading} listMovies={data?.results || []} />
     </section>
   );
 }

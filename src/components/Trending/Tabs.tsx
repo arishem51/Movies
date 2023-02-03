@@ -17,6 +17,7 @@ export default function Tabs({ listTabs, tabId, onChangeTab }: Props) {
           onClick={() => {
             onChangeTab(item.id);
           }}
+          key={item.id}
         >
           {item.name}
         </a>
