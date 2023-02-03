@@ -1,4 +1,3 @@
-import React from "react";
 import BannerForm from "./BannerForm";
 import BannerHeading from "./BannerHeading";
 export default function Banner() {

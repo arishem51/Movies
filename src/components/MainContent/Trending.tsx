@@ -1,31 +1,33 @@
 import { useState } from "react";
+import useMoviesTrending from "../../service/hook/useMoviesTrending";
+import { TABS_TRENDING } from "../types";
 
-const TABS = [
+const Tabs: TABS_TRENDING = [
   {
     name: "Today",
-    id: "today",
+    id: "day",
   },
   {
     name: "This Week",
-    id: "thisweek",
+    id: "week",
   },
 ];
 
-const DATA = new Array(16).fill({
-  name: "Wakanda",
-  image:
-    "https://www.themoviedb.org/t/p/w220_and_h330_face/uLluouDdIqqtB5Yrvdvt8DzAEs6.jpg",
-  date: "Nov 09, 2022",
-});
-
 export default function Trending() {
-  const [tabId, setTabId] = useState(TABS[0].id);
+  const [tabId, setTabId] = useState(Tabs[0].id);
+  const { data, isLoading } = useMoviesTrending({
+    time_windown: tabId,
+    media_type: "movie",
+  });
+  if (isLoading) {
+    return null;
+  }
   return (
     <section className="p-4">
       <div className="flex items-center gap-12">
         <h3 className="text-slate-900 font-semibold text-2xl">Trending</h3>
         <div className="tabs">
-          {TABS.map((item) => (
+          {Tabs.map((item) => (
             <a
               className={`tab tab-bordered ${
                 item.id === tabId ? "tab-active" : ""
@@ -39,16 +41,21 @@ export default function Trending() {
           ))}
         </div>
       </div>
-      <div className="flex gap-6 overflow-x-scroll py-4 bg-slider bg-cover bg-no-repeat">
-        {DATA.map((item) => {
+      <div className="flex gap-6 overflow-x-scroll py-4 bg-slider bg-contain bg-no-repeat">
+        {data?.results.map((item) => {
           return (
             <div className="cursor-pointer">
-              <figure className="w-40 rounded-xl overflow-hidden">
-                <img src={item.image} className="w-full" />
+              <figure className="w-40 rounded-xl overflow-hidden ">
+                <img
+                  src={`https://image.tmdb.org/t/p/w154/${item.poster_path}`}
+                  className="w-full h-56 object-cover"
+                />
               </figure>
               <div>
-                <h3 className="text-slate-900 font-bold mt-2">{item.name}</h3>
-                <span className="text-stone-800 text-sm">{item.date}</span>
+                <h3 className="text-slate-900 font-bold mt-2">{item.title}</h3>
+                <span className="text-stone-800 text-sm">
+                  {item.release_date}
+                </span>
               </div>
             </div>
           );
