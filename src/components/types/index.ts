@@ -10,7 +10,7 @@ type TABS<T> = {
 
 export type TABS_TRENDING = TABS<Trending["time_windown"]>;
 
-type Movie = {
+export type Movie = {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
