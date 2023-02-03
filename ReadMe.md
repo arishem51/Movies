@@ -1,1 +1,3 @@
-Link API: https://developers.themoviedb.org/3/getting-started/introduction
+Movies App
+Build with: React, react-router, tanstack-query, tailwindCSS,...
+TheMovieDatabase API: https://developers.themoviedb.org/3
