@@ -1,5 +1,5 @@
 import Banner from "../Banner";
-import Trending from "./Trending";
+import Trending from "../Trending";
 
 export default function MainContent() {
   return (

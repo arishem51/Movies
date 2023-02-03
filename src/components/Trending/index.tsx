@@ -1,8 +1,9 @@
 import { useState } from "react";
 import useMoviesTrending from "../../service/hook/useMoviesTrending";
 import { TABS_TRENDING } from "../types";
+import Tabs from "./Tabs";
 
-const Tabs: TABS_TRENDING = [
+export const ListTabs: TABS_TRENDING = [
   {
     name: "Today",
     id: "day",
@@ -14,7 +15,7 @@ const Tabs: TABS_TRENDING = [
 ];
 
 export default function Trending() {
-  const [tabId, setTabId] = useState(Tabs[0].id);
+  const [tabId, setTabId] = useState(ListTabs[0].id);
   const { data, isLoading } = useMoviesTrending({
     time_windown: tabId,
     media_type: "movie",
@@ -26,20 +27,11 @@ export default function Trending() {
     <section className="p-4">
       <div className="flex items-center gap-12">
         <h3 className="text-slate-900 font-semibold text-2xl">Trending</h3>
-        <div className="tabs">
-          {Tabs.map((item) => (
-            <a
-              className={`tab tab-bordered ${
-                item.id === tabId ? "tab-active" : ""
-              }`}
-              onClick={() => {
-                setTabId(item.id);
-              }}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
+        <Tabs
+          listTabs={ListTabs}
+          tabId={tabId}
+          onChangeTab={(newTabId) => setTabId(newTabId)}
+        />
       </div>
       <div className="flex gap-6 overflow-x-scroll py-4 bg-slider bg-contain bg-no-repeat">
         {data?.results.map((item) => {
