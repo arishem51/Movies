@@ -16,7 +16,7 @@ export const ListTabs: TABS_TRENDING = [
   },
 ];
 
-export default function Trending() {
+export default function TrendingPreviewMovies() {
   const [tabId, setTabId] = useState(ListTabs[0].id);
   const { data, isLoading } = useMoviesTrending({
     time_windown: tabId,

@@ -1,12 +1,12 @@
 import Banner from "../Banner";
-import Trending from "../Trending";
+import TrendingPreviewMovies from "../TrendingPreviewMovies";
 
 export default function MainContent() {
   return (
     <main className="container mx-auto">
       <Banner />
-      <Trending />
-      <Trending />
+      <TrendingPreviewMovies />
+      <TrendingPreviewMovies />
     </main>
   );
 }
