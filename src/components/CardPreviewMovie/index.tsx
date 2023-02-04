@@ -16,9 +16,11 @@ export default function CardMovie({ item }: Props) {
       </figure>
       <div>
         <h3 className="text-slate-900 font-bold mt-2 line-clamp-2">
-          {item.title}
+          {item?.title || item?.name}
         </h3>
-        <span className="text-stone-800 text-sm">{item.release_date}</span>
+        <span className="text-stone-800 text-sm">
+          {item?.release_date || item?.first_air_date}
+        </span>
       </div>
     </div>
   );

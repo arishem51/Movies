@@ -3,12 +3,16 @@ export type Trending = {
   time_windown: "day" | "week";
 };
 
+export type MovieType = "tv" | "theaters";
+
 type TABS<T> = {
   name: string;
   id: T;
 }[];
 
 export type TABS_TRENDING = TABS<Trending["time_windown"]>;
+
+export type TABS_POPLULAR = TABS<MovieType>;
 
 export type Movie = {
   adult: boolean;
@@ -20,11 +24,13 @@ export type Movie = {
   overview: string;
   popularity: number;
   poster_path: string | string | null;
-  release_date: string;
-  title: string;
+  release_date?: string;
+  title?: string;
+  name?: string;
   video: boolean;
   vote_average: number;
   vote_count: number;
+  first_air_date?: string;
 };
 
 export type MovieResponse = {

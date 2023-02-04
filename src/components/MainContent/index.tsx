@@ -1,4 +1,5 @@
 import Banner from "../Banner";
+import PopularPreviewMovies from "../PopularPreviewMovies";
 import TrendingPreviewMovies from "../TrendingPreviewMovies";
 
 export default function MainContent() {
@@ -6,7 +7,7 @@ export default function MainContent() {
     <main className="container mx-auto">
       <Banner />
       <TrendingPreviewMovies />
-      <TrendingPreviewMovies />
+      <PopularPreviewMovies />
     </main>
   );
 }
