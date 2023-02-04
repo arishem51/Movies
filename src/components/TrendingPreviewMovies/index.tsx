@@ -1,8 +1,7 @@
 import { useState } from "react";
 import useMoviesTrending from "../../service/hook/useMoviesTrending";
+import ListPreviewMovies from "../ListPreviewMovies";
 import { TABS_TRENDING } from "../types";
-import CardMovie from "./CardMovie";
-import ListMovies from "./ListMovie";
 import Tabs from "./Tabs";
 
 export const ListTabs: TABS_TRENDING = [
@@ -32,7 +31,10 @@ export default function TrendingPreviewMovies() {
           onChangeTab={(newTabId) => setTabId(newTabId)}
         />
       </div>
-      <ListMovies isLoading={isLoading} listMovies={data?.results || []} />
+      <ListPreviewMovies
+        isLoading={isLoading}
+        listMovies={data?.results || []}
+      />
     </section>
   );
 }

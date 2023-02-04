@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import CardPreviewMovie from "../CardPreviewMovie";
+import PlaceholderCardMovie from "../PlaceholderCard";
 import { Movie } from "../types";
-import CardMovie from "./CardMovie";
-import { PlaceHolderCardMovie } from "./PlaceholderCard";
 type Props = {
   listMovies: Movie[];
   isLoading: boolean;
@@ -23,9 +23,9 @@ export default function ListMovies({ listMovies, isLoading }: Props) {
       {isLoading || listMovies?.length === 0
         ? new Array(20)
             .fill("_")
-            .map((_, index) => <PlaceHolderCardMovie key={index} />)
+            .map((_, index) => <PlaceholderCardMovie key={index} />)
         : listMovies.map((item) => {
-            return <CardMovie key={item.id} item={item} />;
+            return <CardPreviewMovie key={item.id} item={item} />;
           })}
       <motion.div
         className="absolute inset-0 bg-slider-scroll-linearGradient pointer-events-none"

@@ -1,6 +1,6 @@
 import placeHolderImg from "../../assets/placeholder.jpg";
 
-export function PlaceHolderCardMovie() {
+export default function PlaceHolderCardMovie() {
   return (
     <div className="animate-pulse">
       <figure className="w-40 rounded-xl overflow-hidden ">
