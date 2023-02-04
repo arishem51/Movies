@@ -6,6 +6,7 @@ export default function MainContent() {
     <main className="container mx-auto">
       <Banner />
       <Trending />
+      <Trending />
     </main>
   );
 }
