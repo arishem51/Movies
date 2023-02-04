@@ -24,7 +24,7 @@ export default function Trending() {
   });
   return (
     <section className="p-4">
-      <div className="flex items-center gap-12">
+      <div className="flex items-center gap-12 px-6">
         <h3 className="text-slate-900 font-semibold text-2xl">Trending</h3>
         <Tabs
           listTabs={ListTabs}

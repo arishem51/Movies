@@ -1,3 +1,11 @@
+import {
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useRef } from "react";
 import { Movie } from "../types";
 import CardMovie from "./CardMovie";
 import { PlaceHolderCardMovie } from "./PlaceholderCard";
@@ -7,8 +15,17 @@ type Props = {
 };
 
 export default function ListMovies({ listMovies, isLoading }: Props) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { scrollXProgress, scrollX } = useScroll({
+    container: scrollContainerRef,
+  });
+  const opacity = useTransform(scrollXProgress, [0, 0.3], [1, 0]);
+
   return (
-    <div className="flex gap-6 overflow-x-scroll py-2 pt-4 bg-slider bg-contain bg-no-repeat">
+    <div
+      ref={scrollContainerRef}
+      className="flex relative gap-6 py-4 overflow-x-scroll bg-slider bg-contain bg-no-repeat"
+    >
       {isLoading || listMovies?.length === 0
         ? new Array(20)
             .fill("_")
@@ -16,6 +33,10 @@ export default function ListMovies({ listMovies, isLoading }: Props) {
         : listMovies.map((item) => {
             return <CardMovie key={item.id} item={item} />;
           })}
+      <motion.div
+        className="absolute inset-0 bg-scroll"
+        style={{ opacity, translateX: scrollX }}
+      />
     </div>
   );
 }
