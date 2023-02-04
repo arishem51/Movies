@@ -1,10 +1,4 @@
-import {
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Movie } from "../types";
 import CardMovie from "./CardMovie";
@@ -34,7 +28,7 @@ export default function ListMovies({ listMovies, isLoading }: Props) {
             return <CardMovie key={item.id} item={item} />;
           })}
       <motion.div
-        className="absolute inset-0 bg-scroll"
+        className="absolute inset-0 bg-slider-scroll-linearGradient pointer-events-none"
         style={{ opacity, translateX: scrollX }}
       />
     </div>

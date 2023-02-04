@@ -7,8 +7,8 @@ type Props = {
 
 export default function CardMovie({ item }: Props) {
   return (
-    <div className="cursor-pointer">
-      <figure className="w-40 rounded-xl overflow-hidden ">
+    <div className="cursor-pointer" onClick={() => console.log(item)}>
+      <figure className="w-40 rounded-xl overflow-hidden">
         <img
           src={`${IMAGE_POSTER_URL}${item.poster_path}`}
           className="w-full h-56 object-cover"
