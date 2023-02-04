@@ -1,5 +1,5 @@
 import { IMAGE_POSTER_URL } from "../../constant";
-import { Movie } from "../types";
+import { Movie } from "../../types";
 
 type Props = {
   item: Movie;

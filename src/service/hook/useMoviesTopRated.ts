@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { ErrorResponse, MovieResponse } from "../../components/types";
+import { ErrorResponse, MovieResponse } from "../../types";
 import { AxiosError } from "axios";
 
 export default function useMovieTopRated() {

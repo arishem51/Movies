@@ -1,14 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import {
-  ErrorResponse,
-  MovieResponse,
-  MovieType,
-} from "../../components/types";
+import { ErrorResponse, MovieResponse, MovieType } from "../../types";
 
 export default function useTVPopular(tabId: MovieType) {
   return useQuery<MovieResponse, AxiosError<MovieResponse, ErrorResponse>>(
-    ["movies", "popular", "tv"],
+    ["tv", "popular"],
     async () => {
       const result = await axios.get(`
       https://api.themoviedb.org/3/tv/popular?api_key=${

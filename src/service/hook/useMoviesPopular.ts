@@ -1,13 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import axios, { AxiosError } from "axios";
-import {
-  MovieResponse,
-  ErrorResponse,
-  MovieType,
-} from "../../components/types";
+import axios from "axios";
+import { MovieResponse, MovieType } from "../../types";
 
 export default function useMoviesPopular(tabId: MovieType) {
-  return useQuery<MovieResponse, AxiosError<MovieResponse, ErrorResponse>>(
+  return useQuery<MovieResponse>(
     ["movies", "popular"],
     async () => {
       const result = await axios.get(`

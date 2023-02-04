@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { ErrorResponse, MovieResponse, Trending } from "../../components/types";
+import { ErrorResponse, MovieResponse, Trending } from "../../types";
 
 export default function useMovieTrending({
   time_windown,

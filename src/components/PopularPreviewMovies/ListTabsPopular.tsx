@@ -1,4 +1,4 @@
-import { MovieType, TABS_POPLULAR } from "../types";
+import { MovieType, TABS_POPLULAR } from "../../types";
 
 export const LIST_TABS: TABS_POPLULAR = [
   {

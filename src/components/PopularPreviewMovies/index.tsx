@@ -2,7 +2,7 @@ import { useState } from "react";
 import useMoviesPopular from "../../service/hook/useMoviesPopular";
 import useTVPopular from "../../service/hook/useTVPopular";
 import ListPreviewMovies from "../ListPreviewMovies";
-import { MovieType } from "../types";
+import { MovieType } from "../../types";
 import ListTabsPopular from "./ListTabsPopular";
 
 export default function TrendingPreviewMovies() {

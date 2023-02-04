@@ -1,4 +1,4 @@
-import { TABS_TRENDING, Trending } from "../types";
+import { TABS_TRENDING, Trending } from "../../types";
 
 export const LIST_TABS: TABS_TRENDING = [
   {

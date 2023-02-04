@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useMoviesTrending from "../../service/hook/useMoviesTrending";
 import ListPreviewMovies from "../ListPreviewMovies";
-import { Trending } from "../types";
+import { Trending } from "../../types";
 import ListTabsTrending from "./ListTabsTrending";
 
 export default function TrendingPreviewMovies() {

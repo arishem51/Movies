@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import CardPreviewMovie from "../CardPreviewMovie";
 import PlaceholderCardMovie from "../PlaceholderCard";
-import { Movie } from "../types";
+import { Movie } from "../../types";
 type Props = {
   listMovies: Movie[];
   isLoading: boolean;
