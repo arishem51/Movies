@@ -1,11 +1,23 @@
+import axios from "axios";
 import { Trending } from "../../types";
 import { MoviesAPI } from "./Movies";
 import { TvMoviesAPI } from "./TvMovies";
 
+const BASE_URL = "https://api.themoviedb.org/3/";
+
+const instance = axios.create({
+  baseURL: BASE_URL,
+  timeout: 2 * 10 * 1000, // 2 minutes
+});
+
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 const ServiceAPI = {
-  movies: MoviesAPI,
-  tvMovies: TvMoviesAPI,
+  movies: MoviesAPI(instance, API_KEY),
+  tvMovies: TvMoviesAPI(instance, API_KEY),
 };
+
+// Movies
 
 export async function fetchMoviesPupolar() {
   const result = await ServiceAPI.movies.getPopular();
@@ -21,6 +33,8 @@ export async function fetchMoviesTrending(params: Trending) {
   const result = await ServiceAPI.movies.getTrending(params);
   return result.data;
 }
+
+// TV - Movies
 
 export async function fetchTvMoviesPolular() {
   const result = await ServiceAPI.tvMovies.getPopular();

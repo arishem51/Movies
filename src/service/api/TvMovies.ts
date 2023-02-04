@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
-export const TvMoviesAPI = {
-  getPopular: () =>
-    axios.get(`
-    https://api.themoviedb.org/3/tv/popular?api_key=${
-      import.meta.env.VITE_API_KEY
-    }&page=1`),
+export const TvMoviesAPI = (axios: AxiosInstance, apiKey: string) => {
+  return {
+    getPopular: () =>
+      axios.get(`
+      tv/popular?api_key=${apiKey}&page=1`),
+  };
 };
