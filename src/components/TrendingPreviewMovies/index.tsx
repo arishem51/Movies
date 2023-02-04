@@ -1,8 +1,8 @@
 import { useState } from "react";
-import useMoviesTrending from "../../service/hook/useMoviesTrending";
 import ListPreviewMovies from "../ListPreviewMovies";
 import { Trending } from "../../types";
 import ListTabsTrending from "./ListTabsTrending";
+import { useMoviesTrending } from "../../service/hook/Movies.hook";
 
 export default function TrendingPreviewMovies() {
   const [tabId, setTabId] = useState<Trending["time_windown"]>("day");

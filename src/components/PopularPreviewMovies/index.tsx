@@ -1,15 +1,13 @@
 import { useState } from "react";
-import useMoviesPopular from "../../service/hook/useMoviesPopular";
-import useTVPopular from "../../service/hook/useTVPopular";
 import ListPreviewMovies from "../ListPreviewMovies";
 import { MovieType } from "../../types";
 import ListTabsPopular from "./ListTabsPopular";
+import { useMoviesPopular } from "../../service/hook/Movies.hook";
+import useTVPopular from "../../service/hook/useTVPopular";
 
 export default function TrendingPreviewMovies() {
   const [tabId, setTabId] = useState<MovieType>("tv");
-
   const theatersResponse = useMoviesPopular(tabId);
-
   const tvResponse = useTVPopular(tabId);
 
   const isLoading =
