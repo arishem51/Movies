@@ -13,7 +13,7 @@ export default function useHeaderAnimations() {
         controls.start({ y: "-100%" }, { duration: 0.2, delay: 0.2 });
       } else if (latest < scrollRef.current) {
         // Scroll up goes here
-        controls.start({ y: 0 }, { duration: 0.2, delay: 0.1 });
+        controls.start({ y: 0 }, { duration: 0.08, ease: "easeOut" });
       }
       scrollRef.current = latest;
     });
