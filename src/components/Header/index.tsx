@@ -1,24 +1,10 @@
-import { motion, useAnimationControls, useScroll } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import useHeaderAnimations from "../../hooks/useHeaderAnimations";
 
 export default function Header() {
-  const controls = useAnimationControls();
-  const { scrollY } = useScroll();
-  const scrollRef = useRef(scrollY.get());
-  useEffect(() => {
-    scrollY.on("change", (latest) => {
-      if (latest > scrollRef.current) {
-        controls.start({ y: "-100%" }, { duration: 0.5, delay: 0.2 });
-      } else if (latest < scrollRef.current) {
-        controls.start({ y: 0 }, { duration: 0.5, delay: 0.2 });
-      }
-      scrollRef.current = latest;
-    });
-    return () => {
-      controls.stop();
-    };
-  });
+  const controls = useHeaderAnimations();
+
   return (
     <motion.div
       animate={controls}
