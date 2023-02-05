@@ -1,19 +1,15 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import CardPreviewMovie from "../CardPreviewMovie";
 import PlaceholderCardMovie from "../PlaceholderCard";
 import { Movie } from "../../types";
+import useListPreviewSlide from "../../hooks/useListPreviewSlide";
 type Props = {
   listMovies: Movie[];
   isLoading: boolean;
 };
 
 export default function ListMovies({ listMovies, isLoading }: Props) {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollXProgress, scrollX } = useScroll({
-    container: scrollContainerRef,
-  });
-  const opacity = useTransform(scrollXProgress, [0, 0.3], [1, 0]);
+  const { scrollContainerRef, opacity, scrollX } = useListPreviewSlide();
 
   return (
     <div

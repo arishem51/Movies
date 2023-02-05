@@ -2,7 +2,7 @@ import placeHolderImg from "../../assets/placeholder.jpg";
 
 export default function PlaceHolderCardMovie() {
   return (
-    <div className="animate-pulse">
+    <div className="animate-pulse h-80">
       <figure className="w-40 rounded-xl overflow-hidden ">
         <img src={placeHolderImg} className="w-full h-56 object-cover" />
       </figure>
