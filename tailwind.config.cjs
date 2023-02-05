@@ -10,6 +10,8 @@ module.exports = {
           'url("https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg")',
         "slider-scroll-linearGradient":
           "linear-gradient(90deg, rgba(255,255,255,0) 95%, rgba(255,255,255,1) 100%)",
+        fetching:
+          "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(45,87,175,1) 100%);",
       },
       backgroundPosition: {
         slider: "-10px 100px",

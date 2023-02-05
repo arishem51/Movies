@@ -3,14 +3,14 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import "./index.css";
-import QueryProvider from "./Provider/QueryProvider";
+import QueryContext from "./Context/QueryContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <QueryProvider>
+      <QueryContext>
         <App />
-      </QueryProvider>
+      </QueryContext>
     </BrowserRouter>
   </React.StrictMode>
 );

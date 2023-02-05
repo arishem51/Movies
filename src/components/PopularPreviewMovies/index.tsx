@@ -14,8 +14,6 @@ export default function TrendingPreviewMovies() {
     tabId === "theaters" ? theatersResponse.isLoading : tvResponse.isLoading;
   const data = tabId === "theaters" ? theatersResponse.data : tvResponse.data;
 
-  console.log(tvResponse.error);
-
   return (
     <section className="p-4">
       <div className="flex items-center gap-12 px-6">

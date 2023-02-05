@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function QueryProvider({ children }: PropsWithChildren) {
+export default function QueryContext({ children }: PropsWithChildren) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
