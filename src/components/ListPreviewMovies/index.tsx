@@ -3,6 +3,7 @@ import CardPreviewMovie from "../CardPreviewMovie";
 import PlaceholderCardMovie from "../PlaceholderCard";
 import { Movie } from "../../types";
 import useListPreviewSlide from "../../hooks/useListPreviewSlide";
+
 type Props = {
   listMovies: Movie[];
   isLoading: boolean;
