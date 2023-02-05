@@ -13,8 +13,9 @@ export default function ListMovies({ listMovies, isLoading, controls }: Props) {
   const { scrollContainerRef, opacity, scrollX } = useListPreviewSlide();
 
   return (
-    <div ref={scrollContainerRef} className="bg-slider bg-contain bg-no-repeat">
+    <div className="bg-slider bg-contain bg-no-repeat">
       <motion.div
+        ref={scrollContainerRef}
         animate={controls}
         className="flex relative gap-6 py-4 overflow-x-scroll bg-transparent"
       >
@@ -25,11 +26,11 @@ export default function ListMovies({ listMovies, isLoading, controls }: Props) {
           : listMovies.map((item) => {
               return <CardPreviewMovie key={item.id} item={item} />;
             })}
+        <motion.div
+          className="absolute inset-0 bg-slider-scroll-linearGradient pointer-events-none"
+          style={{ opacity, translateX: scrollX }}
+        />
       </motion.div>
-      <motion.div
-        className="absolute inset-0 bg-slider-scroll-linearGradient pointer-events-none"
-        style={{ opacity, translateX: scrollX }}
-      />
     </div>
   );
 }
