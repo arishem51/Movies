@@ -3,16 +3,18 @@ import ListPreviewMovies from "../ListPreviewMovies";
 import { MovieType } from "../../types";
 import ListTabsPopular from "./ListTabsPopular";
 import { useMoviesPopular } from "../../service/hook/Movies.hook";
-import useTVPopular from "../../service/hook/useTVPopular";
+import { useTvMoviesPopular } from "../../service/hook/TvMovies.hook";
 
 export default function TrendingPreviewMovies() {
   const [tabId, setTabId] = useState<MovieType>("tv");
   const theatersResponse = useMoviesPopular(tabId);
-  const tvResponse = useTVPopular(tabId);
+  const tvResponse = useTvMoviesPopular(tabId);
 
   const isLoading =
     tabId === "theaters" ? theatersResponse.isLoading : tvResponse.isLoading;
   const data = tabId === "theaters" ? theatersResponse.data : tvResponse.data;
+
+  console.log(tvResponse.error);
 
   return (
     <section className="p-4">

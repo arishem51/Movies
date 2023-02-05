@@ -1,9 +1,7 @@
-import axios, { AxiosInstance } from "axios";
+import { AxiosInstance } from "axios";
 
 export const TvMoviesAPI = (axios: AxiosInstance, apiKey: string) => {
   return {
-    getPopular: () =>
-      axios.get(`
-      tv/popular?api_key=${apiKey}&page=1`),
+    getPopular: () => axios.get(`tv/popular?api_key=${apiKey}&page=1`),
   };
 };
