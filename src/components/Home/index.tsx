@@ -8,7 +8,7 @@ function Space() {
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <Header />
       <Space />
       <Outlet />

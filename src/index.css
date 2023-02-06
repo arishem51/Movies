@@ -13,3 +13,9 @@
 *::-webkit-scrollbar-track {
   background: transparent;
 }
+
+body,
+html,
+#root {
+  height: 100%;
+}
