@@ -20,6 +20,6 @@ export default function useHeaderAnimations() {
     return () => {
       controls.stop();
     };
-  });
+  }, [controls, scrollY]);
   return controls;
 }

@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { MovieResponse, MovieType, Trending } from "../../types";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { MovieResponse, MovieType, QueryError, Trending } from "../../types";
 import {
   fetchMoviesPupolar,
   fetchMoviesTopRated,
@@ -15,12 +15,13 @@ const MoviesKey = {
     media_type,
     time_windown,
   ],
+  infinitePopular: () => ["movies", "popular", "infinite"],
 } as const;
 
 export function useMoviesPopular(tabId: MovieType) {
   return useQuery<MovieResponse>({
     queryKey: MoviesKey.popular,
-    queryFn: () => fetchMoviesPupolar(),
+    queryFn: () => fetchMoviesPupolar({ page: 1 }),
     enabled: tabId === "theaters",
   });
 }
@@ -36,5 +37,15 @@ export function useMoviesTrending(params: Trending) {
   return useQuery<MovieResponse>({
     queryKey: MoviesKey.trending(params),
     queryFn: () => fetchMoviesTrending(params),
+  });
+}
+
+export function useInfiniteMoviePopular() {
+  return useInfiniteQuery<MovieResponse, QueryError<MovieResponse>>({
+    queryFn: ({ pageParam = 1 }) => fetchMoviesPupolar({ page: pageParam }),
+    queryKey: MoviesKey.infinitePopular(),
+    getNextPageParam: (lastPage) => {
+      return lastPage.total_pages < lastPage.total_results && lastPage.page + 1;
+    },
   });
 }

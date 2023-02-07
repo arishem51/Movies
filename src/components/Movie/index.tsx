@@ -1,20 +1,20 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { MovieResponse } from "../../types";
+import React from "react";
+import { useScroll } from "framer-motion";
+import { useEffect } from "react";
+import { useInfiniteMoviePopular } from "../../service/hook/Movies.hook";
 import MovieCard from "../MovieCard";
-const page = 1;
+
 export default function Movie() {
-  const { data } = useInfiniteQuery(
-    ["movie", "popular", "infinite", page],
-    async () => {
-      const result = await axios.get<MovieResponse>(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${
-          import.meta.env.VITE_API_KEY
-        }&page=${page}`
-      );
-      return result.data;
-    }
-  );
+  const { data, hasNextPage, fetchNextPage } = useInfiniteMoviePopular();
+  const { scrollYProgress } = useScroll();
+  useEffect(() => {
+    scrollYProgress.on("change", (value) => {
+      if (value === 1 && hasNextPage) {
+        fetchNextPage();
+      }
+    });
+    return () => scrollYProgress.destroy();
+  }, [fetchNextPage, hasNextPage, scrollYProgress]);
 
   function renderItem() {
     return data?.pages.map((page) =>

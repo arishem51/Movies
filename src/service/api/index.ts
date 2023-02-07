@@ -21,8 +21,8 @@ const ServiceAPI = {
 
 // Movies
 
-export async function fetchMoviesPupolar() {
-  const result = await ServiceAPI.movies.getPopular();
+export async function fetchMoviesPupolar(params: { page: number }) {
+  const result = await ServiceAPI.movies.getPopular(params);
   return result.data;
 }
 
