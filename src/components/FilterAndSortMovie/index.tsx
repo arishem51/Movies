@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 
 export default function FilterAndSortMovie() {
   return (
-    <div className=" flex px-56 py-8 gap-4">
+    <div className=" flex px-56 py-8 gap-12">
       <Sidebar />
       <Outlet />
     </div>
