@@ -5,6 +5,7 @@ import ListTabsPopular from "./ListTabsPopular";
 import { useMoviesPopular } from "../../service/hook/Movies.hook";
 import { useTvMoviesPopular } from "../../service/hook/TvMovies.hook";
 import { useAnimationControls } from "framer-motion";
+import React from "react";
 
 export default function TrendingPreviewMovies() {
   const [tabId, setTabId] = useState<MovieType>("tv");
@@ -20,7 +21,7 @@ export default function TrendingPreviewMovies() {
     <section className="p-4">
       <div className="flex items-center gap-12 px-6">
         <h3 className="text-slate-900 font-semibold text-2xl">
-          What's Popular
+          What&apos;s Popular
         </h3>
         <ListTabsPopular
           tabId={tabId}

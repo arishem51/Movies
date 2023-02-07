@@ -1,4 +1,5 @@
 import { useGenresList } from "../../service/hook/Genres.hook";
+import React from "react";
 
 export default function GenresList() {
   const { data } = useGenresList();

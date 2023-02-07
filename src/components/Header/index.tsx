@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import useHeaderAnimations from "../../hooks/useHeaderAnimations";
+import React from "react";
 
 export default function Header() {
   const controls = useHeaderAnimations();

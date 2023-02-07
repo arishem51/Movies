@@ -1,8 +1,9 @@
-import { AnimationControls, motion, AnimatePresence } from "framer-motion";
+import { AnimationControls, motion } from "framer-motion";
 import CardPreviewMovie from "../PreviewMovieCard";
 import PlaceholderCardMovie from "../PlaceholderCard";
 import { Movie } from "../../types";
 import useListPreviewSlide from "../../hooks/useListPreviewSlide";
+import React from "react";
 
 type Props = {
   listMovies: Movie[];

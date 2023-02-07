@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GenresList from "../GenresList";
+import React from "react";
 
 export default function Filter() {
   const [isOpen, setIsOpen] = useState(false);

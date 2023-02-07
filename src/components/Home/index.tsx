@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Footer";
 import Header from "../Header";
+import React from "react";
 
 function Space() {
   return <div style={{ width: "100%", height: 72 }} />;

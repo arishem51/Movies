@@ -4,6 +4,7 @@ import { Trending } from "../../types";
 import ListTabsTrending from "./ListTabsTrending";
 import { useMoviesTrending } from "../../service/hook/Movies.hook";
 import { useAnimationControls } from "framer-motion";
+import React from "react";
 
 export default function TrendingPreviewMovies() {
   const [tabId, setTabId] = useState<Trending["time_windown"]>("day");

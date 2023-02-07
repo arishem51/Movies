@@ -1,3 +1,4 @@
+import React from "react";
 import { IMAGE_PREVIEW_CARD_POSTER_URL } from "../../constant";
 import { Movie } from "../../types";
 

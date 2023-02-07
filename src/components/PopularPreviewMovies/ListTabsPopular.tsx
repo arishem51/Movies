@@ -1,4 +1,5 @@
 import { MovieType, TABS_POPLULAR } from "../../types";
+import React from "react";
 
 export const LIST_TABS: TABS_POPLULAR = [
   {

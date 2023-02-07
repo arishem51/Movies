@@ -1,4 +1,5 @@
 import { TABS_TRENDING, Trending } from "../../types";
+import React from "react";
 
 export const LIST_TABS: TABS_TRENDING = [
   {

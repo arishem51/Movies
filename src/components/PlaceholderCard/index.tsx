@@ -1,4 +1,5 @@
 import placeHolderImg from "../../assets/placeholder.jpg";
+import React from "react";
 
 export default function PlaceHolderCardMovie() {
   return (
