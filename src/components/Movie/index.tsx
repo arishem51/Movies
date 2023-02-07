@@ -3,18 +3,16 @@ import { useScroll } from "framer-motion";
 import { useEffect } from "react";
 import { useInfiniteMoviePopular } from "../../service/hook/Movies.hook";
 import MovieCard from "../MovieCard";
+import useScrollToBottomAction from "../../hooks/useScrollToBottomAction";
 
 export default function Movie() {
   const { data, hasNextPage, fetchNextPage } = useInfiniteMoviePopular();
-  const { scrollYProgress } = useScroll();
-  useEffect(() => {
-    scrollYProgress.on("change", (value) => {
-      if (value === 1 && hasNextPage) {
-        fetchNextPage();
-      }
-    });
-    return () => scrollYProgress.destroy();
-  }, [fetchNextPage, hasNextPage, scrollYProgress]);
+
+  useScrollToBottomAction({
+    onBottom() {
+      hasNextPage && fetchNextPage();
+    },
+  });
 
   function renderItem() {
     return data?.pages.map((page) =>
