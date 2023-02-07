@@ -1,9 +1,10 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { MovieResponse } from "../../types";
+import MovieCard from "../MovieCard";
 const page = 1;
 export default function Movie() {
-  const infiniteQuery = useInfiniteQuery(
+  const { data } = useInfiniteQuery(
     ["movie", "popular", "infinite", page],
     async () => {
       const result = await axios.get<MovieResponse>(
@@ -14,5 +15,16 @@ export default function Movie() {
       return result.data;
     }
   );
-  return <div className="flex-1">Movie</div>;
+
+  function renderItem() {
+    return data?.pages.map((page) =>
+      page.results.map((item) => <MovieCard item={item} key={item.id} />)
+    );
+  }
+
+  return (
+    <div className="flex-1 grid grid-cols-5 justify-items-center gap-8">
+      {renderItem()}
+    </div>
+  );
 }

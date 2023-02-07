@@ -7,7 +7,7 @@ export default function Filter() {
     setIsOpen(!isOpen);
   }
   return (
-    <div className="flex flex-col shadow rounded-lg border cursor-pointer">
+    <div className="flex flex-col shadow rounded-lg border cursor-pointer w-64">
       <button className="py-2 px-2 pr-12" onClick={handleClick}>
         <h6 className="text-xl font-semibold text-left">Filters</h6>
       </button>

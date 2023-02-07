@@ -1,5 +1,5 @@
 import { AnimationControls, motion, AnimatePresence } from "framer-motion";
-import CardPreviewMovie from "../CardPreviewMovie";
+import CardPreviewMovie from "../PreviewMovieCard";
 import PlaceholderCardMovie from "../PlaceholderCard";
 import { Movie } from "../../types";
 import useListPreviewSlide from "../../hooks/useListPreviewSlide";
