@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import FilterAndSortMovie from "./FilterAndSortMovie";
 import Home from "./Home";
 import MainContent from "./MainContent";
 import Movie from "./Movie";
@@ -13,10 +14,12 @@ export default function App() {
       <Route element={<Home />} path="/">
         <Route index element={<MainContent />} />
         <Route path="movie">
-          <Route index element={<Movie />} />
-          <Route path="top-rated" element={<TopRated />} />
-          <Route path="upcoming" element={<UpComing />} />
-          <Route path="now-playing" element={<NowPlaying />} />
+          <Route element={<FilterAndSortMovie />}>
+            <Route index element={<Movie />} />
+            <Route path="top-rated" element={<TopRated />} />
+            <Route path="upcoming" element={<UpComing />} />
+            <Route path="now-playing" element={<NowPlaying />} />
+          </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Route>
