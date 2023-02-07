@@ -1,6 +1,4 @@
 import React from "react";
-import { useScroll } from "framer-motion";
-import { useEffect } from "react";
 import { useInfiniteMoviePopular } from "../../service/hook/Movies.hook";
 import MovieCard from "../MovieCard";
 import useScrollToBottomAction from "../../hooks/useScrollToBottomAction";
