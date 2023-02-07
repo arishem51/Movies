@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Trending } from "../../types";
+import { GenresAPI } from "./Genres";
 import { MoviesAPI } from "./Movies";
 import { TvMoviesAPI } from "./TvMovies";
 
@@ -15,6 +16,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const ServiceAPI = {
   movies: MoviesAPI(instance, API_KEY),
   tvMovies: TvMoviesAPI(instance, API_KEY),
+  genres: GenresAPI(instance, API_KEY),
 };
 
 // Movies
@@ -38,5 +40,12 @@ export async function fetchMoviesTrending(params: Trending) {
 
 export async function fetchTvMoviesPolular() {
   const result = await ServiceAPI.tvMovies.getPopular();
+  return result.data;
+}
+
+// Genres
+
+export async function fetchGenresListInMovie() {
+  const result = await ServiceAPI.genres.getListInMovies();
   return result.data;
 }

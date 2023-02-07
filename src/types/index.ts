@@ -1,3 +1,5 @@
+import { AxiosError } from "axios";
+
 export type Trending = {
   media_type: "all" | "movie" | "tv" | "person";
   time_windown: "day" | "week";
@@ -40,7 +42,13 @@ export type MovieResponse = {
   total_pages: number;
 };
 
+export type GenresResponse = {
+  genres: { id: string | number; name: string }[];
+};
+
 export type ErrorResponse = {
   status_message: string;
   status_code: number;
 };
+
+export type QueryError<TData> = AxiosError<TData, ErrorResponse>;
