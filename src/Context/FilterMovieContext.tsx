@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { createContext, PropsWithChildren, useState } from "react";
+import { NumOrStr } from "../types";
 
 const Context = createContext<
   | {
-      genreId: string;
-      setGenreId: React.Dispatch<React.SetStateAction<string>>;
+      genreId: NumOrStr;
+      setGenreId: React.Dispatch<React.SetStateAction<NumOrStr>>;
     }
   | string
 >("useFilterMovie must be used under FilterMovieContext");
@@ -12,7 +13,7 @@ const Context = createContext<
 type Props = PropsWithChildren;
 
 export default function FilterMovieContext({ children }: Props) {
-  const [genreId, setGenreId] = useState("");
+  const [genreId, setGenreId] = useState<NumOrStr>("");
   const value = {
     genreId,
     setGenreId,

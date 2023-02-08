@@ -52,3 +52,5 @@ export type ErrorResponse = {
 };
 
 export type QueryError<TData> = AxiosError<TData, ErrorResponse>;
+
+export type NumOrStr = number | string;

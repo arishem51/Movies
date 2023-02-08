@@ -1,6 +1,6 @@
+import React from "react";
 import useLastPathName from "../../hooks/useLastPathName";
 import Filter from "./Filter";
-import React from "react";
 
 const SIDEBAR_HEADING: { [key: string]: string } = {
   movie: "Popular Movies",
