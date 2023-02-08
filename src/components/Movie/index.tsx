@@ -6,7 +6,7 @@ import { useFilterMovie } from "../../Context/FilterMovieContext";
 
 export default function Movie() {
   const { data, hasNextPage, fetchNextPage } = useInfiniteMoviePopular();
-  const { genreId, isSearch } = useFilterMovie();
+  const { genresFilterId } = useFilterMovie();
 
   useScrollToBottomAction({
     onBottom() {
@@ -16,9 +16,9 @@ export default function Movie() {
 
   function renderItem() {
     return data?.pages.map((page) => {
-      if (isSearch) {
+      if (genresFilterId) {
         return page.results
-          .filter((movie) => movie.genre_ids.includes(+genreId))
+          .filter((movie) => movie.genre_ids.includes(+genresFilterId))
           .map((movie) => <MovieCard key={movie.id} item={movie} />);
       }
 

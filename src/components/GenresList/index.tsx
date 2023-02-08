@@ -1,10 +1,14 @@
 import React from "react";
-import { useFilterMovie } from "../../Context/FilterMovieContext";
 import { useGenresList } from "../../service/hook/Genres.hook";
+import { NumOrStr } from "../../types";
 
-export default function GenresList() {
+type Props = {
+  genreId: NumOrStr;
+  setGenreId: React.Dispatch<React.SetStateAction<NumOrStr>>;
+};
+
+export default function GenresList({ genreId, setGenreId }: Props) {
   const { data } = useGenresList();
-  const { genreId, setGenreId } = useFilterMovie();
 
   if (!data?.genres || data.genres.length === 0) {
     return null;
@@ -17,7 +21,7 @@ export default function GenresList() {
           +item.id === +genreId ? "bg-sky-400 text-slate-50" : ""
         }`}
         key={item.id}
-        onClick={() => setGenreId(item?.id)}
+        onClick={() => setGenreId(+item?.id)}
       >
         <span>{item.name}</span>
       </div>

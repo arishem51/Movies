@@ -5,10 +5,8 @@ import { NumOrStr } from "../types";
 
 const Context = createContext<
   | {
-      genreId: NumOrStr;
-      setGenreId: React.Dispatch<React.SetStateAction<NumOrStr>>;
-      isSearch: boolean;
-      setIsSearch: React.Dispatch<React.SetStateAction<boolean>>;
+      genresFilterId: NumOrStr;
+      setGenreFilterId: React.Dispatch<React.SetStateAction<NumOrStr>>;
     }
   | string
 >("useFilterMovie must be used under FilterMovieContext");
@@ -17,13 +15,10 @@ type Props = PropsWithChildren;
 
 export default function FilterMovieContext({ children }: Props) {
   usePrefetchGenres();
-  const [genreId, setGenreId] = useState<NumOrStr>("");
-  const [isSearch, setIsSearch] = useState(false);
+  const [genresFilterId, setGenreFilterId] = useState<NumOrStr>("");
   const value = {
-    genreId,
-    setGenreId,
-    isSearch,
-    setIsSearch,
+    genresFilterId,
+    setGenreFilterId,
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
