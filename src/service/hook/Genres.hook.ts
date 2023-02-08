@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { GenresResponse, QueryError } from "../../types";
 import { fetchGenresListInMovie } from "../api";
 
@@ -10,5 +10,13 @@ export function useGenresList() {
   return useQuery<GenresResponse, QueryError<GenresResponse>>({
     queryKey: GenresKey.getListInMovie,
     queryFn: () => fetchGenresListInMovie(),
+  });
+}
+
+export function usePrefetchGenres() {
+  const queryClient = useQueryClient();
+  queryClient.prefetchQuery({
+    queryKey: GenresKey.getListInMovie,
+    queryFn: fetchGenresListInMovie,
   });
 }
