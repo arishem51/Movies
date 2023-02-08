@@ -1,3 +1,4 @@
+import React from "react";
 import { IMAGE_CARD_POSTER_URL } from "../../constant";
 import { Movie } from "../../types";
 
@@ -9,7 +10,7 @@ type Props = {
 export default function MovieCard({ item, className }: Props) {
   return (
     <div
-      className={`cursor-pointer w-full rounded-md overflow-hidden shadow-md ${className}`}
+      className={`w-full max-h-[396px] rounded-md overflow-hidden shadow-md cursor-pointer ${className}`}
       onClick={() => console.log(item)}
     >
       <figure className="">
