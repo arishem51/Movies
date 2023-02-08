@@ -5,11 +5,11 @@ import Sidebar from "./Sidebar";
 
 export default function FilterAndSortMovie() {
   return (
-    <FilterMovieContext>
-      <div className=" flex px-72 py-8 gap-12">
+    <div className=" flex px-72 py-8 gap-12">
+      <FilterMovieContext>
         <Sidebar />
         <Outlet />
-      </div>
-    </FilterMovieContext>
+      </FilterMovieContext>
+    </div>
   );
 }
