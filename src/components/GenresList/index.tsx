@@ -14,9 +14,7 @@ export default function GenresList() {
     return data?.genres.map((item) => (
       <div
         className={`px-3 border rounded-[24px] hover:bg-sky-400 hover:text-slate-50 ${
-          item.id.toString() === genreId.toString()
-            ? "bg-sky-400 text-slate-50"
-            : ""
+          +item.id === +genreId ? "bg-sky-400 text-slate-50" : ""
         }`}
         key={item.id}
         onClick={() => setGenreId(item?.id)}
