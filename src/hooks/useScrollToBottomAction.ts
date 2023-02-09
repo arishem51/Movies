@@ -6,16 +6,20 @@ type Props = {
 };
 
 export default function useScrollToBottomAction({ onBottom }: Props) {
-  const { scrollYProgress } = useScroll();
+  const { scrollY } = useScroll();
+
   useEffect(() => {
-    scrollYProgress.on("change", (value) => {
-      if (value === 1) {
+    const scrollValue =
+      document.documentElement.offsetHeight -
+      document.documentElement.clientHeight;
+    scrollY.on("change", (value) => {
+      if (Math.round(value) === scrollValue) {
         onBottom();
       }
     });
     return () => {
-      scrollYProgress.stop();
-      scrollYProgress.destroy();
+      scrollY.stop();
+      scrollY.destroy();
     };
-  }, [onBottom, scrollYProgress]);
+  }, [onBottom, scrollY]);
 }

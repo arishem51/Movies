@@ -12,13 +12,14 @@ export default function Filter() {
   function handleOpenFilter() {
     setIsOpen(!isOpen);
   }
+
   function handleSearchClick() {
     setGenreFilterId(genreId);
   }
 
   return (
     <>
-      <div className="flex flex-col shadow rounded-lg border cursor-pointer w-64">
+      <div className="flex  flex-col shadow rounded-lg border cursor-pointer w-64">
         <button className="py-2 px-2 pr-12" onClick={handleOpenFilter}>
           <h6 className="text-xl font-semibold text-left">Filters</h6>
         </button>
