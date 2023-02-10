@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useFilterMovie } from "../../Context/FilterMovieContext";
+import { useFilterMovieAPI } from "../../Context/FilterMovieContext";
 import { NumOrStr } from "../../types";
 import GenresList from "../GenresList";
 
 export default function Filter() {
   const [genreId, setGenreId] = useState<NumOrStr>("");
   const [isOpen, setIsOpen] = useState(false);
-  const { setGenreFilterId } = useFilterMovie();
+  const { setGenreFilterId } = useFilterMovieAPI();
 
   function handleOpenFilter() {
     setIsOpen(!isOpen);

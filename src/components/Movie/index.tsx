@@ -2,11 +2,11 @@ import React from "react";
 import { useInfiniteMoviePopular } from "../../service/hook/Movies.hook";
 import MovieCard from "../MovieCard";
 import useScrollToBottomAction from "../../hooks/useScrollToBottomAction";
-import { useFilterMovie } from "../../Context/FilterMovieContext";
+import { useFilterMovieData } from "../../Context/FilterMovieContext";
 
 export default function Movie() {
   const { data, hasNextPage, fetchNextPage } = useInfiniteMoviePopular();
-  const { genresFilterId } = useFilterMovie();
+  const { genresFilterId } = useFilterMovieData();
 
   useScrollToBottomAction({
     onBottom() {
